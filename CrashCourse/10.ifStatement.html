@@ -1,0 +1,38 @@
+<script>
+    //conditional logic with if, by defaul in boolean the if is true then the else is false
+    function trueOrFalse(isItTrue) {
+        if(isItTrue) {
+            return "Yes it is true";
+        }
+        return "No it is false";
+    }
+
+    console.log(trueOrFalse(false));
+
+    //equality operator
+    function equality(num1, num2) {
+        if(num1 == num2) {
+            return "They are equal";
+        }
+        return "They are not equal";
+    }
+    console.log(equality(1,10))
+
+    //if else statements
+    function elseif(num1,num2){
+        if(num1 > num2){
+            return "Number 1 is greater than number 2";
+        }else{
+            return "Number 2 is greater than number 1";
+        }
+    }
+    console.log(elseif(10,2));
+
+    //conditional ternary operator
+    //condition ? statement-if-true: statement-if-false;
+    //condition ? statement-if-true: condtion ? : statement-if-true : statement-if-false;
+    function ifelse(num1, num2){
+        return num1 > num2 ? "Number 1 is greater than number 2": "Number 2 is greater than number 1";
+    }
+    console.log(ifelse(100,20));
+</script>

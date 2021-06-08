@@ -1,0 +1,68 @@
+<script>
+    //below we put a name parameters so upon calling the function it will ask for a parameter
+    function sayHi(name){
+        console.log("Hi " + name);
+    }
+
+    sayHi("Joshua");
+
+    //return value from a function
+    function add(num1, num2) {
+        return num1 + num2;
+    }
+    console.log(add(1,1));
+
+    //next in line (que simulation)
+    function nextInline(array, element) { //2.this will ask for two parameters 
+        array.push(element); //3.this will add the element inside the array in the last 
+        return array.shift();//4.this will get the first element inside the array
+
+    }
+    var que = [1,2,3,4,5];
+
+    //JSON.stringify() is a function that will display an array element as string
+    console.log("Before " + JSON.stringify(que));//display 1 2 3 4 5
+    console.log("Next number is " + nextInline(que, 6)); //1.this will pass the array and the element 6 inside the functiion
+    console.log("After "  + JSON.stringify(que))//display 2 3 4 5 6
+
+    //return boolean values from function
+
+    function trueOrFalse(a,b){
+        if(a > b){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    //function above can be simplified by:
+    function TrueOrFalse(){
+        a > b;
+    }
+
+    document.write(trueOrFalse(10, 50));
+
+    //use arrow functions to write concise anonymous functions
+    //use this only if you are returning one value
+    const MAGIC = () => new Date();
+
+    //write arrow functions with parameters
+    var myConcat = (arr1, arr2) => arr1.concat(arr2);
+
+    //code above is same as below
+    console.log(myConcat([1,2], [3,4,5]));
+    var concat = function(arr3, arr4){
+        return arr3.concat(arr4);
+    }
+    console.log(concat([1,2], [3,4,5]));
+
+    //write higher order arrow function
+    const REALNUMBERARRAY = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+    const SQUARELIST = (arr) => {
+        //filter intergers that is greater than 0 using .filter and Number.isInterger and ..map gets the filtered data
+        const SQUAREDINTEGERS = arr.filter(num => Number.isInteger(num) && num > 0).map(x => x * x);
+        return SQUAREDINTEGERS;
+    }
+    console.log(SQUARELIST(REALNUMBERARRAY));
+
+  
+</script>

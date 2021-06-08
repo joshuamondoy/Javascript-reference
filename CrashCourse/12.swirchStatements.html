@@ -1,0 +1,50 @@
+<script>
+    function grade(score){
+        switch(score){
+            case 'a':
+                return "Very good";
+                break;
+            case 'b':
+                return "You did great";
+                break;
+            case 'c':
+                return "You can do better next time";
+                break;
+            case 'd':
+                return "You failed";
+                break
+            default:
+                return "Invalid";
+                break;
+        }
+    }
+    console.log(grade('f'));
+
+    //multiple identical option
+    function aGrade(num){
+
+        switch (num){
+            case 'a':
+            case 'A':
+                return "Very good";
+                break;
+            case 'b':
+            case 'B':
+                return "You did great";
+                break;
+            case 'c':
+            case 'C':
+                return "You can do better next time";
+                break;
+            case 'd':
+            case 'D':
+                return "You failed";
+                break;
+            default:
+                return "Invalid";
+                break;
+        }
+
+    }
+    console.log(aGrade('b'));
+</script>

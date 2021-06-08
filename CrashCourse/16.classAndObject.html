@@ -1,0 +1,35 @@
+<script>
+    class People {
+        constructor(firstName, middleName, lastName){
+            this.firstname = firstName;
+            this.middlename = lastName;
+            this.lastname = lastName;
+        }
+        getFullName(){ //method is a function that is associate to an object
+            return `${this.firstname} ${this.lastname}`;
+        }
+    }
+
+    const people1 = new People('Joshua','Robles','Mondoy');
+
+    //inheritance
+    class AnotherPeople extends People{
+        constructor(firstName, middleName, lastName, address, age, hobbies){
+            super(firstName, middleName, lastName) //this will bind the attribute of the extended class
+            this.firstname = firstName;
+            this.middlename = lastName;
+            this.lastname = lastName;
+            this.address = address;
+            this.age = age;
+            this.hobbies = hobbies;
+        }
+        getFullAddress = () => {
+            return this.address
+        }
+    }
+
+    const people2 = new AnotherPeople('Rodelno', 'De Pablo', 'Saron', 'Aklan', 25, ['eating', 'playing', 'chatting'])
+    console.log(people2.getFullName())
+    console.log(people2.getFullAddress());
+    people2.hobbies.forEach((hobby) => console.log(hobby));
+</script>

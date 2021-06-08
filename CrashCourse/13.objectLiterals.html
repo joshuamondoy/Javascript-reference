@@ -1,0 +1,203 @@
+<script>
+//create an object
+var people = { //name of object
+    "name": "Joshua", //attributes and values
+    "address": "Torres, subdivision", 
+    "birthday": "May 24, 1995",
+    "the motto": "Walang forever",
+   
+};
+//you don't need to put quote on property name unless the property name has spaces or it a reserve word in javascrip, in our case the objects properties doesn't need double qoutes except thet "the motto" because it has space
+
+//to call the properties values inside an object we can use two methods:
+//.notation method
+var name = people.name;//this will get the value of the property name which is joshua
+console.log(name);
+
+//bracket notation
+var motto = people["the motto"]; //it is ideal to use bracket notation when the properties inside an object has spaces
+console.log(motto);
+
+//accessing object properties with variables
+var date = "birthday"; //we assign the properties name to a variable
+var yourBday = people[date];//variable that holds the poperty name will be called, in short we use a variable to temporary hold the value of the property of the object
+console.log(yourBday);
+
+//updating the values of the properties
+people.name = "Waos"; //we assign another value for the property name
+console.log(people.name);//this will be waos now instead of joshua
+
+//add new properties to an object
+people.jowa = "walang jowa"; //here we add a new property called jowa with a value walang jowa using .notation
+people["hobbies"] = "be alone";//add using bracket notation
+console.log(people.hobbies);//calling it on the console    
+
+//delete properties to an object
+delete people.jowa; //this will delete the jowa properties kasi wala ka naman jowa
+console.log(people.jowa);//now this is undefined
+
+//using objects for lookups means that you can alterate using object to switch statements
+
+//testing objects for properties it like search
+function checkTheProperties(propertyName) {
+    if (people.hasOwnProperty(propertyName)){//hasOwnProperty is a built in function
+        return people[propertyName];
+    }else{
+        return "Not found";
+    }
+}
+
+console.log(checkTheProperties("name"));
+
+//accessing nested objects
+var nestedObject = {
+    "car": {
+        "inside": {
+            "glove box": "maps",
+            "passenger seat": "crumbs"
+        },
+        "outside": {
+            "trunk": "jacket"
+        }
+    }
+};
+
+//accessing objects with array
+var anObject = {
+    "array": [1,2,3,"joshua"],
+    "Property 1": "value 1"
+}
+
+console.log(anObject.array[3]);
+
+var gloveBoxContent = nestedObject.car.inside["glove box"];
+console.log(gloveBoxContent);//it should output "maps"
+
+//record collection
+
+var mountains = {
+        "binicayan": {
+        "height": "424 msl",
+        "difficulty": "4/4",
+        "trail": [
+            "90 degrees",
+            "long trail"
+        ]
+    },
+        "haponang banoi": {
+        "height": "517 msl",
+        "difficulty": "5/9",
+        "trail": [
+            "long trail",
+            "90 degrees"
+        ]
+        },
+        "pamitinan": {
+            "height": "426 msl",
+            "difficulty": "4/9",
+            "trail": [
+                "traditional",
+                "traverse"
+            ]
+        }
+    }
+    var mountainsCopy = JSON.parse(JSON.stringify(mountains)); //this function will just copy the data of the object mountain as backup before we do some changes using the function below
+    console.log(mountains.binicayan.trail[1]);//this will call the long trail value inside the array trail
+    function updateDetails(mtName, property, value){
+        if(value === ""){ //if value is empty
+            delete mountains[mtName][property]; //this condition will delete a property if it has an empty value
+        
+        
+        //code below is for the trail array only
+        }else if(property === "trail"){ // if property is equal to array name that is already in the record
+            mountains[mtName][property] =  mountains[mtName][property] || [] //existing property value is initialize as it's value or make an empty array
+            mountains[mtName][property].push(value); //this will insert the value inside the property trail
+
+        //code below for new property that do not exist the the record
+        }else{
+            mountains[mtName][property] = value; //this will insert the value inside the mountain if properties does not exist
+        }
+        
+        return mountains;
+    }
+    console.log(updateDetails("binicayan", "trail", "test")); //insert value to the trail array 
+    console.log(updateDetails("binicayan", "try", "try")); //insert new property since try property does not exist
+    console.log(updateDetails("binicayan", "difficulty", "test")); //update the value of property
+    
+
+      //prevent object mutation
+      function freezeObj(){
+          "use strict";
+          const MATH_CONSTANT = {
+              PI : 3.14
+          };
+        //   Object.freez(freezeObj); this function will prevent the try catch to change the value of PI
+        //code below will change the value of the canstant PI
+          try {
+              MATH_CONSTANT.PI = 99; 
+
+          }catch( ex ){
+            console.log(ex);
+          }
+          return MATH_CONSTANT.PI;
+
+      }
+        const PI = freezeObj();
+        console.log(PI);
+
+
+      //use destructive assignment to assign variables from objects
+      var people = {
+          "firstname": "Joshua",
+          "middlename": "Robles",
+          "lastname": "Mondoy"
+      };
+      var {firstname:fname, middlename:mname, lastname:lname} = people;
+      console.log(fname); //now this should call the value of the firstname wchich is "Joshua"
+
+      //use destructive assignment to assign variables from nested objects
+      const peoples = {
+          name: {
+              "fname": "joshua",
+              "lname": "mondoy"
+          },
+            hobbies: {
+                "indoor": "codding",
+                "outdoor": "hiking"
+          }
+          
+      }
+    //   var output = peoples.name.fname;
+    var {name : {fname:firstname}} = peoples;
+
+      console.log(firstname);
+
+      var thisIsAnotherObject = {
+          property1: "this is the value",
+          "property 2": "this is another value"
+      };
+      console.log(thisIsAnotherObject["property 2"]);
+
+      //destructuring is assigning the values from objects to a variable
+
+      const person = {
+          hobbies: ['Sleeping', 'Eating', 'Playing'],
+          address: 'Wawa, San Rafael, Rodriguez, Rizal',
+          fullname: {
+            firstname: 'Joshua',
+            middlename: 'Robles',
+            lastname: 'Mondoy'
+          }
+      }
+
+      //this is how to use destructuring
+    //   const {hobbies, address} = person;
+    //   console.log(`Hi I extracted this "${hobbies} and ${address}" using destructuring`);
+
+      //this is how to destructure an embeded object from an object
+      const {fullname : {firstName, middlename, lastname}} = person;
+      console.log(firstname, middlename, lastname);
+      console.log(person.hobbies[1]);
+      
+</script>
+

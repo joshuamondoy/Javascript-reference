@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:;base64,=">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //syncronous below won't work because the email data has a delay of 5sec therefore the user variable will be undefined
+        // console.log('Start sync');
+        // function loginUser(email, password){
+        //     setTimeout(() =>{
+        //         console.log('We have the data:');
+        //         return({userEmail: email})
+        //     }, 5000);
+        // }
+
+        // const user = loginUser('joshuamondoy24@gmail.com', '12345')
+        // console.log(`Your email is: ${user}`);
+        // console.log('Finish sync')
+
+        /*------simple process to show how callback works-----*/
+         //so using this function we simulate a function that request some information from an api for example
+        function getInfo(email, callback){
+            setTimeout(() => { //here we use setTimeout to simulate the delay of fetching data from api 
+                callback({theEmail: email})
+            }, 5000);
+        }
+
+        console.log('Simulation starts here');
+        getInfo('w3ird01995@gmail.com', (demail) =>{ 
+            console.log(demail)
+        })
+        console.log('Simulation ends here');
+
+
+        /*------callback is a function that's passed in as a parameter that will run later------*/
+        console.log('Start async');
+        function loginUser2(email, password, callback){ //the third parameter will expect a callback
+            setTimeout(() =>{
+                callback({userEmail: email}) //wrap th value to callback to fetch
+            }, 1000);
+        }
+        function getVideo(email, callback){
+            setTimeout(() =>{
+                callback(['video1', 'video2', 'video3'])
+            }, 1000)
+
+        }
+        function getDetails(email, callback){
+            setTimeout(() =>{
+                callback(['details1', 'details2', 'details3'])
+            }, 1000)
+
+        }
+        //basically what happened is the function above will take a callback and result will be fetch by this callback then upon calling the function below we passed that callback function
+        loginUser2('joshuamondoy24@gmail.com', '12345', (user) => { 
+            console.log({user}); //call the object from the function
+            getVideo(user.email, (video) => {
+                console.log(video)
+                getDetails('random@mail.com', (details) => {
+                    console.log(details) //this is the problem with callback, when calling multiple request from callback it will be a callback hell
+                });
+            });
+        });
+        
+        console.log('Finish async');
+
+
+        /*--------Another Example--------*/
+
+        const post = [
+            {title: 'Post One', body: 'This is post one'},
+            {title: 'Post Two', body: 'This is post two'}
+        ]
+
+        function getPost() {
+            setTimeout(() => {
+                let output ='';
+                post.forEach((post) => {
+                    output += `<li>${post.title}</li>`;
+                 });
+                document.body.innerHTML = output;
+            }, 1000)
+        }
+
+        function createPost(newPost, callback) {
+            setTimeout(() => {
+                post.push(newPost);
+                callback(); //we use callback so even this function has longer delay it will still display it
+
+            }, 2000) //now the new post won't be display because the createPost has a longer delay and it in syncronous
+        }
+
+        createPost({title: 'Post Three', body: 'This is post three'}, getPost)
+            
+
+        
+
+        
+    </script>
+</body>
+</html>

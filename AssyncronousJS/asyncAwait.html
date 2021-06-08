@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:;base64,=">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    function loginUser(email){
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve({userEmail: email})
+            }, 2000);
+        });
+    }
+    function getVideo(email) {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve(['video1', 'video2', 'video3'])
+            });
+        }, 2000);
+    }
+    function videoDetail() {
+        return new Promise(resolve => {
+            resolve('Title of the video')
+        }, 2000);
+    }
+    async function displayData(){
+        const loggedUser = await loginUser('random@email.com', 12345);
+        const videos = await getVideo(loggedUser.userEmail);
+        const details = await videoDetail(videos[0]);
+        console.log(details);
+
+
+    }
+    console.log('start')
+    displayData();
+    console.log('end')
+    </script>
+</body>
+</html>

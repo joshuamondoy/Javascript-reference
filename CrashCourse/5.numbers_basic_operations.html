@@ -1,0 +1,45 @@
+    <script>
+        var int1 = 10;
+        var int2 = 4;
+
+        var sum = int1 + int2;
+        var diffirence = int1 - int2;
+        var multiply = int1 * int2;
+        var divide = int1 / int2;
+        var remainder = int1 % int2;
+
+        //you can concatinate variables and string using +  sign
+        console.log(int1+" plus "+int2+" is "+sum);
+        console.log(int1+" minus "+int2+" is "+diffirence);
+        console.log(int1+" mulitiplied by "+int2+" is "+multiply);
+        console.log(int1+" devided by "+int2+" is "+divide);
+        console.log("The remainder of "+int1+" and "+int2+" is "+remainder);
+
+        
+        //increment and decrement using ++ or --
+        var myVar = 10;
+        myVar++;
+        console.log(myVar);
+
+        //generate random random decimal
+        console.log(Math.random()); //this will display random numbers from 0 and 1 
+        console.log(Math.floor(5.75)) //math.floor rounds down to the nearest whole number
+
+        //generate random whole numbers
+        function randomNumber(){
+            return Math.floor(Math.random() * 20); //this will display rendom numbers from 0 to 20
+        }
+        console.log(randomNumber());
+
+        //random numbers between given max and min value
+        function randomMaxMin(max, min){
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        console.log(randomMaxMin(1,10));
+
+        //convert string to integer
+        function toInt(string){
+            return parseInt(string);
+        }
+        console.log(toInt("20"));
+    </script>

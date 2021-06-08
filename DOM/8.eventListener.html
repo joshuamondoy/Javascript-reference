@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grand-parent{
+            background: red;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            cursor: pointer;
+            
+        }
+        .parent{
+            background: yellow;
+            width: 130px;
+            height: 130px;
+            position: absolute;
+            right: 50%;
+            top: 50%;
+            transform: translate(50%, -50%);
+            
+        }
+        .child{
+            background: blue;
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            right: 50%;
+            top: 50%;
+            transform: translate(50%, -50%);
+            
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="grand-parent">
+        <div class="parent">
+            <div class="child"></div>
+        </div>
+    </div>
+    <script src="8.eventListener.js"></script>
+</body>
+</html>

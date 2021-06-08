@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*---------ES6-----------*/
+        /*class method and use syntactic sugar*/
+        //class, object with method
+        class Movies{
+            constructor(Title, Duration, Theme){
+                this.Title = Title;
+                this.Duration = Duration;
+                this.Theme = Theme;
+            }
+            //unlike in es5 you dont need to use prototype to exclude a method from it's class, it is automatically done behind the scene
+            getSummary() {
+                return `${this.Title} is a ${this.Duration} movie with a ${this.Theme} theme`;
+            }   
+        }
+        const movie1 =  new Movies('Army of the dead', 'Two Hours', 'Sci-fi');
+        console.log(movie1.getSummary());
+
+        // using inheritance
+        class Series extends Movies{
+            constructor(Title, Duration, Theme, Season){
+                super(Title, Duration, Theme); //super will bind the inherited attributes from the other class
+                this.Title = Title;
+                this.Duration = Duration;
+                this.Theme = Theme;
+                this.Season = Season;
+            }
+            getSeason(newSeason){
+                this.Season = newSeason;
+            }
+        }
+        const searies1 = new Series('Invincible', '40 mins per episode', 'Sci-fi',  'One season');
+        // console.log(searies1.getSummary()); //no need to use another prototype to access the method on the inherited class
+        searies1.getSeason('Two season');
+        console.log(searies1);
+
+        //destructuring
+        const {Title} = searies1;
+        console.log(Title);
+
+
+
+    </script>
+</body>
+</html>

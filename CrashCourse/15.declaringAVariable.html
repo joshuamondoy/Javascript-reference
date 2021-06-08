@@ -1,0 +1,49 @@
+<script>
+    //global scopes and  functions
+    function sayhello(){
+        var name = "joshua";
+        console.log("hello " + name);
+    }
+    sayhello();
+    //declaring a variable with keyword var is a global variable global scope
+    //declaring a variale inside a function is a local variable with local scope
+    //global variable is accessible inside a function
+    //local variable is not accessible outside a function
+    console.log(name);
+
+    //Declare a variable
+    var my_name = "Joshua"; //be able to be use in the whole program
+    my_name = "Mondoy"; //another way to declare a variable above
+    let myname = "Joshua"; //only be use within the block of codes where you declare it, means it cannot be called outdide the block. it also cannot declare twice in the same scope like this
+    //    function block(){
+    //        let name = "name";
+    //        let name = "name";
+    //    }
+    const PIE = 3.14; // same as let except that it is constant, practice to capslock it so you can easily remember that it is a constant
+
+
+    //functin below will only return "Block scope" for value of i since the condtion is true
+    //on the otherhand if we change var to let the function below will output "Block cope" and "function scope" because even the condtion is true the other value of i is outsie of if statements so upon calling it outside will also give it's original value
+    function scope(){
+        var i = "function scope";
+        if (true){
+            i = "Block scope";
+            console.log("Block scope is: ", i);
+        }
+        console.log("Function sope is: ", i);
+        return i;
+    }
+    scope();
+    const pi = 3.14; //constant value read only
+    console.log(my_name);
+    
+
+    //mutate an array declared as const
+    //while const variale cannot be reassign you can still change its value using bracket notation
+    const e = [1,2,3,4,5];
+    e[0] = 10;
+    console.log(e);
+
+  
+
+</script>

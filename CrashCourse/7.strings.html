@@ -1,0 +1,91 @@
+<script>
+//to declare string as variable value we use double, single quote or backtick
+var name1 = "This is a string";
+var name2 = 'This is a string';
+var name3 = `This is a string`;
+
+//to include double quote inside a string use backslash before the quote
+var myVar =  "This is a \"doubled qouted\" string inside a \"double quoutes\"";
+console.log(myVar);
+
+//you can also use single quote or backticks for the string and then the double quote inside will be ignored
+var aVar = 'This is a "doubled quoted" string inside a "double quotes"';
+console.log(aVar);
+
+// CODE    OUTPUT
+// \'      snigle quote
+// \"      double quote
+// \\      backlslash
+// \n      newline
+// \r      carriage return
+// \t      tab
+// \b      backspace
+// \f      form feed
+
+var myStr = "First line\n\t\\Second line\n\t\\Third line";
+console.log(myStr);
+
+//concatinate strings using + operator
+var str1 = "Joshua "+"Mondoy";
+console.log(str1);
+
+//concatinate using += operators
+var str2 = "Joshua Robles";
+str2 += " Mondoy";
+console.log(str2);
+
+//concatinate with variable
+var str3 = "Hello my name is ";
+console.log(str3+str2);
+
+//appending variables to string
+var toCode = "awesome";
+var awesome = "To learn to code is ";
+console.log(awesome += toCode);
+
+//find the length of the string
+var firstName = "Joshua";
+var firstNameLength = 0;
+firstNameLength = firstName.length;
+console.log("Your firsname length is "+firstNameLength);
+
+//bracket notation to find first character in a string
+var firstLetter = firstName[0];
+console.log(firstLetter)
+
+//string immutability means not like in php you cannot change a single character inside a string in a varaible, to change you need
+// to change the whole variable like below
+firstName = "Waos";
+console.log(firstName)
+
+//bracket notation to find the last character in string
+var lastLetter = firstName[firstName.length - 1];
+console.log(lastLetter);
+
+//bracket notation to find the nth to last characters in string
+var lastLetter = firstName[firstName.length - 2];
+console.log(lastLetter);
+
+//word blanks
+function blanks(firstName, lastName){
+    var fullName = "";
+    fullName += `Hi your name is ${firstName} ${lastName}`;
+}
+console.log(blanks("Joshua", "Mondoy"));
+
+function add(int1, int2){
+    var add = int1 + int2;
+    return add;
+}
+console.log(add(1,1));
+var n = "Josh";
+var m = "Mondoy";
+
+//this is the modern way to concatinate a variable to a string
+console.log(`Hi ${n} ${m}`);
+
+
+
+
+
+</script>

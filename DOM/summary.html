@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* relative position will depend where it is already placed the you can adjust using left, right etc..
+        absolute postion will depend on its ancestor or parent element postion upon adjust it will depend on parent element as well */
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing:border-box;
+            text-align: center;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150vh;
+        }
+        .body{
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            background-color: darkgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+       
+            
+        }
+        .body  div{
+            cursor: pointer;
+        }
+        
+        #box-1{
+            background-color:coral;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        
+          
+           
+        
+
+        }
+        #box-2{
+            background-color:cornflowerblue;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+           
+           
+           
+        }
+        #box-3{
+            background-color:cyan;
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            
+            
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="body">
+        
+    <div id="box-3" data-box>box 3</div>
+    <div id="box-2" data-box>box 2</div>
+    <div id="box-1" data-box>box 1</div>
+    </div>
+    <script src="summary.js"></script>
+</body>
+</html>

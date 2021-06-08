@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //sync means the code will run on its normal way by line, code bolow cannot run until the above is finish
+        function doSomething(){
+            console.log('This is how syncronous works');
+        }
+        console.log('Start');
+        doSomething();
+        console.log('End');
+
+        //async means that while the current line of code is running the code below will run and won't wait for the first line to finish 
+        console.log('Start');
+        setTimeout(() => { //call back is the function inside the setTimeout function
+            console.log('We are in timeout');
+        }, 10000) //since this function have delay of 10 seconds the code below will run first 
+        console.log('End');
+
+        // callback is a function passed as an argument to another function. This technique allows a function to call another function. A callback function can run after another function has finished.
+        setTimeout(() => { //call back is the function inside the setTimeout function
+            console.log('This is a callback');
+        }, 10000) //since this function have delay of 10 seconds the code below will run first 
+        //callback is not always asyncronous like:
+
+        console.log('Starts here');
+        const items = [1,2,3,4,5];
+        items.forEach((item) => {
+            console.log(`Item number ${item}`);
+        })
+        console.log('Ends here');
+    </script>
+</body>
+</html>

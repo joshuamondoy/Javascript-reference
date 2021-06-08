@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP</title>
+</head>
+<body>
+    <script>
+        //note: function or method build using es5 needs prototype function to separate it from the object upon console.logging it white in es6 it is much more easier in one syntax and no need to define a prototype it is already build in behind the scene that's why it called syntactic sugar
+        /*---------ES5-----------*/
+        //object literals
+        const people1 = {
+                    Name: 'Joshua Mondoy',
+                    Age: 26,
+                    Gender: 'Male'
+                }
+                const people2 = {
+                    Name: 'Tho Saron',
+                    Age: 26,
+                    Gender: 'Male'
+                }
+                // console.log(Object.values(people)); //displays only all the values of the object
+                // console.log(Object.keys(people)); //display only all the keys inside the object
+                console.log(people1)
+                console.log(people2)
+
+                //object literals not ideal for creating multiple object because it not convinient in adding or editing property or values of multiple object 
+
+        //object with constructor function
+        function People(name, age, gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            //this method will also displayed as an attribute to this object which is not good practice therefire we use prototype
+            // this.getSummary = function () {
+            //     return `My name is ${this.name}, ${this.gender}, and I am ${this.age} years old `;
+            // }
+        }
+
+        //using prototype will exlude the method from the object upon calling the whole object and it will be included in the prototype
+        People.prototype.getSummary = function(){
+            return `My name is ${this.name}, ${this.gender}, and I am ${this.age} years old `;
+        }
+        const people3 = new People('Joshua Mondoy', 26, 'male'); //create an object 
+        const people4 = new People('Tho Saron', 26, 'male');
+        console.log(people3);
+        console.log(people4.getSummary());
+            //these objects are same as the two on the top but using constructor made it more easier to add or edit keys and values
+
+        //using inheritance
+        function Students(name, age, gender, yearEnrolled){
+            People.call(this, name, age, gender);//es5 way to bind the object to the new object
+            this.year = yearEnrolled;
+        }
+        Students.prototype = Object.create(People.prototype); //this will give us access to the method on People object which is  getSummary
+        Students.prototype.enroll = function(yearEnrolled){ //this function will accept new value for the year enrolled
+            this.year = yearEnrolled;
+            this.eroll = true;
+
+        } 
+        const student1 = new Students('Janine Fernando', 28, 'female', 2018);
+        student1.enroll('2020');
+        console.log(student1.getSummary());
+
+        //destructuring
+        const {name, age} = student1;
+        console.log(name);
+    </script>
+    
+</body>
+</html>

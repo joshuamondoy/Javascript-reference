@@ -1,0 +1,199 @@
+<script>
+    var array = [];
+//the code below will make value to the array above
+    //while loop
+    // var i = 0;
+    // while(i < 5){
+    //     array.push(i);
+    //     i++;
+    // }
+
+    //do while
+    // do {
+    //     array.push(i);
+    //     i++;
+    // }while(i < 5)
+    
+
+    //for loop
+    for(i = 0; i < 5; i++){
+        array.push(i);
+    }
+
+    console.log(array);
+
+    //iterate through an array with for loop
+    var anArray = [1,2,3,4,5];
+    var total = 0;
+
+    for(var i = 0; i < anArray.length; i++){
+        total += anArray[i]; //this will add all the value inside the anArray
+
+    }
+    console.log(total);
+
+    //to call all the value inside an array
+    for(var i = 0; i < anArray.length; i++){
+        console.log(anArray[i]);
+    }
+    //or
+    for(var value of anArray){
+          console.log(`Print this ${value}`);
+      }
+
+    //call the value inside a nested array
+    var array = [[1,2,3],[4,5,6],[7,8,9]];
+
+    for(var i = 0; i < array.length; i++){
+        for(var j = 0; j < array[i].length; j++){
+            console.log("out "+ array[i][j]);
+        }
+    }
+
+    //iterate through nested array
+    var product = 1; //we set value 1 because we need to know the total product of the element inside the array, if it is 0 then it will all be 0
+    for(var i = 0; i < array.length; i++){
+        for(var j = 0; j < array[i].length; j++){
+            product *= array[i][j];
+        }
+    }
+    console.log(product);
+
+    //iterate using while loop
+    var xarray = [];
+    var y = 10;
+    while(y < 5){
+        xarray.push(y);
+        y++;
+    }
+    console.log(y, xarray);//y will be 10 and xarray will still empty becase in while loop conditio checks before execution of arguments
+//iterate using do while loop
+    do{
+        xarray.push(y);
+        y++;
+
+    }while(y < 5);
+    console.log(y, xarray);//y will be 11 and xarrey will have 10 value because in do while looop excution first before check the condition
+
+     //profile lookup
+     var profile = [
+        {
+            "firstname": "Joshua",
+            "middlename": "Robles",
+            "lastname": "Mondoy",
+            "number": 09488957800,
+            "hobbies": [
+                "hiking",
+                "coding",
+                "sleeping"
+            ]
+        },
+        {
+            "firstname": "Rodelno",
+            "middlename": "De Pablo",
+            "lastname": "Saron",
+            "number": 09488957811,
+            "hobbies": [
+                "basketball",
+                "coding",
+                "sleeping"
+            ]
+
+        }
+    ]
+    //call value using for loop
+    for(x = 0; x < profile.length; x++){
+        console.log(`echo this ` + profile[x].firstname);
+    }
+
+    function lookup(name, prop){
+        for(var i = 0; i < profile.length; i++){
+            if(profile[i].firstname === name){
+                return profile[i][prop] || "No such property";
+            }
+            return "No such contact";
+        }
+    }
+    console.log(lookup("Joshua", "lastname"));
+
+    //forloop in object
+    for(const val of profile){
+        console.log(`optimize for loop this ${val.firstname}`);
+    }
+    for(var c = 0; c < profile.length; c++){
+        console.log(`.length for loop this ${profile[c].firstname}`);
+    }
+    
+
+    //forloop in array
+    const contacts = [1,2,3,4,5,5]
+
+    for(var val = 0; val < contacts.length; val++){
+        console.log(`It's ${contacts[val]}`);
+    }
+    //or
+    for(var contact of contacts){
+        console.log(`This ${contact}`);
+    }
+    //or this which is a high order array method
+    contacts.forEach((item) => {
+        console.log(`Item ${item}`);
+    });
+
+    const mountain = [
+        {
+            name: 'Mt. Binicayan',
+            height: '424 msl',
+            difficulty: 'minor'
+        },
+        {
+            name: 'Mt. Pamitinan',
+            height: '426 msl',
+            difficulty: 'minor'
+        },
+        {
+            name: 'Mt. Haponang Banoi',
+            height: '517 msl',
+            difficulty: 'minor'
+        },
+        {
+            name: 'Mt. Pulag',
+            height: '2,926 msl',
+            difficulty: 'major'
+        }
+    ]  
+    //high order array methods
+    
+    //forEach is used to loop and display elements of an object inside an array
+    mountain.forEach(mountainName => {
+        console.log(mountainName.name) //display all the name of mountains of each object
+    });
+
+    //.map is use to create a new array from the values inside the existing array
+    const mapedArray = mountain.map(mountainName => {
+        return mountainName.name; //this will create a new array with mountain names inside as values
+    });
+
+    //.filter is use to create a new array from the existing array depends on the condition
+    const filteredArray = mountain.filter(mountainDifficulty => {
+      return mountainDifficulty.difficulty === 'minor'; //this will return all the array objects that has minor difficulty
+    })
+    console.log(filteredArray); //display a new array with objects inside
+
+    //combine .map and filter to create a new array based on our preferences
+    const filteredArray2 = mountain.filter(mountainDifficulty => {
+      return mountainDifficulty.difficulty === 'minor'; //this will return all the array objects(return all values) that has minor difficulty
+    }).map(mountainName => {
+        return mountainName.name; //return only the mountain name that satisfy the .filter above, so that the array that will be created will only have the mountain name as their values (only names)
+    })
+    console.log(filteredArray2); //display a new array with only mountain names as values
+
+    
+
+
+    
+   
+
+
+
+</script>

@@ -1,0 +1,137 @@
+<script>
+    //array array is basically a variable that can hold multiple values
+    //this is how to declare an array
+    var ourArray = ["burdagul",2,4,5];
+
+    //how to call an array value
+    console.log(ourArray[0]);
+
+    //nested array
+    var nestedArray = [[1,2,3,4,5],["Joshua", "Robles", [1,4,3,2]]];
+
+    //how to call a multidimensional array
+    console.log(nestedArray[1][1]);//this will give us the value "Robles"
+    console.log(nestedArray[1][2][1]);//this will give us the value "4"
+
+    //how to know the last value of an array
+    var count = ourArray[ourArray.length - 1];
+    console.log(count);
+
+    //change the element inside array
+    ourArray[0] = "Denver";
+    //not like in php you can call all the elements inside an array withour using loop
+    console.log(ourArray);
+
+    //to insert element or another array inside an array use push function
+    var theArray = [1,2,3,4,5];
+    theArray.push(6,7,8);
+    console.log(theArray);
+    //to inssert another array
+    theArray.push([9,10,11]);
+    console.log(theArray);
+
+    //to remove an element in an array use function pop
+    var anArray = [1,2,3,4,5];
+    anArray.pop(); //by default this will remove the last element in the array, you can put an idex as well
+    console.log(anArray);
+
+    //to remove the first element use the function shift
+    var removedFromArray = anArray.shift(); //assign the value removed from the array to this variable
+    console.log(removedFromArray);
+
+    //to add element to the beggining of the array use unsshift function
+    anArray.unshift(0);
+    console.log(anArray);//this will add 0 on the beggining of the array anArray
+    anArray.splice(0,2); //o is the index starting point an 2 is the number of values to be remove in an array
+
+    //nested arrays/objects
+    var myPlants = [
+        {
+            type: "flowers",
+            list: [
+                "rose",
+                "tulip",
+                "dandelion"
+            ]
+        },
+        {
+            type: "trees",
+            list: [
+                "fir",
+                "pine",
+                "birtch"
+            ]
+        }
+    ];
+    console.log(myPlants[1].list[1]);
+    
+    //use destructive assignment to assign variables from arrays
+
+    var arr5 = [1, 2, 3, 4, 5];
+    const [a, b, c] = arr5;
+    console.log(b);
+
+    //you can also use dextructure to swttch the values inside array
+    let x =1;
+    let y =2;
+    [x,y] = [y,x]
+    console.log(y); //y will be now have the value 1
+    arr5.pop(0);
+    console.log(arr5);
+
+    const todos = [
+        {
+            id: 1,
+            text: "Take out trash",
+            isCompleted: true
+        },
+        {
+            id: 2,
+            text: "Meeting with boss",
+            isCompleted: true
+        },
+        {
+            id: 1,
+            text: "Dentist appt",
+            isCompleted: false
+        }
+    ]
+    console.log(todos[2].text);
+
+    //convert to stringnify, by the way stringnfy is just an array that is converted to string
+    const todosJSON = JSON.stringify(todos);
+    console.log(todosJSON);
+    //converts JSON to object/array
+    const todosObj = JSON.parse(todosJSON);
+    console.log(todosObj);
+
+    //use for loops for an array object
+    for(todo of todos){
+        console.log(todo.text)
+    }
+
+    //use high order array methods using forEach, map and filter
+    //forEach will loop to the whole array and display the desired elements
+    todos.forEach((todo) => {
+        console.log(todo.id, todo.text) //this will didplay the id together with the text in each line
+
+    });
+
+    //map will only return a new array of the selected elements from the array object
+    //it create a new array from the array
+    const mapElements = todos.map((todo) => {
+        return todo.text //this will return a single array with values of text element from the object
+    });
+    console.log(mapElements)
+
+    //filter will only return a value from array object depends on the condition 
+    //it create a new array based on the condition
+    const filterElements = todos.filter((todo) => {
+        return todo.isCompleted === true; //no like .filter it will return the whole object from the array that is true based on the condition
+    }).map((todo) => { //since filter return the whole object per index in the array that satisfies the condition we can use .map to get the only element from that filtered index that we need
+        return todo.text //this will return only the text from object where isCompleted is true 
+    });
+
+
+    console.log(filterElements);
+   </script>
