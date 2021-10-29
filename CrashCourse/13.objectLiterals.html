@@ -36,12 +36,12 @@ console.log(people.hobbies);//calling it on the console
 delete people.jowa; //this will delete the jowa properties kasi wala ka naman jowa
 console.log(people.jowa);//now this is undefined
 // reference by value
-let obj1 = {1,2,3,4,5}; 
-let obj2 = arr1; // now what ever the value of arr1 will also be the value of arr2 by reference. It also means that changing or adding value to arr2 will will be same to arr2
+let obj1 = {first : "1", second : "2"}; 
+let obj2 = obj1; // now what ever the value of arr1 will also be the value of arr2 by reference. It also means that changing or adding value to arr2 will will be same to arr2
     
 // cloning
-let obj3 = {1,2,3,4,5}; // here we just clone the value of arr1 to arr2 and what ever change happen to arr2 doesn't affect arr2
-let obj4 = {...arr1};
+let obj3 = {first : "1", second : "2"};   // here we just clone the value of arr1 to arr2 and what ever change happen to arr2 doesn't affect arr2
+let obj4 = {...obj3};
     
 //using objects for lookups means that you can alterate using object to switch statements
 
