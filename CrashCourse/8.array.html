@@ -43,7 +43,15 @@
     anArray.unshift(0);
     console.log(anArray);//this will add 0 on the beggining of the array anArray
     anArray.splice(0,2); //o is the index starting point an 2 is the number of values to be remove in an array
-
+    
+    // reference by value
+    let arr1 = [1,2,3,4,5]; 
+    let arr2 = arr1; // now what ever the value of arr1 will also be the value of arr2 by reference. It also means that changing or adding value to arr2 will will be same to arr2
+    
+    // cloning
+    let arr1 = [1,2,3,4,5]; // here we just clone the value of arr1 to arr2 and what ever change happen to arr2 doesn't affect arr2
+    let arr2 = [...arr1];
+    
     //nested arrays/objects
     var myPlants = [
         {
