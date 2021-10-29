@@ -205,6 +205,20 @@ var mountains = {
       const {fullname : {firstName, middlename, lastname}} = person;
       console.log(firstname, middlename, lastname);
       console.log(person.hobbies[1]);
+      let details = {
+      fName : 'Joshua',
+      mName : 'Robles',
+      lName : 'Mondoy'
+      }
+
+      let arr1 = [['number1', 1] ,['number2', 2], ['number3', 3], ['number4', 4], ['number5', 5]];
+
+     // convert array to object
+     console.log(Object.fromEntries(arr1));
+
+
+     // convert object to array
+     console.log(Object.entries(details));
       
 </script>
 
