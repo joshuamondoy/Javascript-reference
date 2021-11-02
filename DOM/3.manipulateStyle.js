@@ -13,6 +13,14 @@ for( let i = 0; i < list.length; i++){
 for(let i = 0; i < list.length; i++){
     list[i].style.cssText = "font-size: 25px; background-color: pink; list-style: none; font-family: sans-serif";
 }
+// or
+for(let item of list) {
+    item.style.cssText = "font-size: 25px; background-color: pink; list-style: none; font-family: sans-serif";
+}
+// or
+list.forEach(item () => {
+    item.style.cssText = "font-size: 25px; background-color: pink; list-style: none; font-family: sans-serif";
+});
 //set a class for an element and call it from the css file
 let heading = document.querySelector("#sub-heading");
 heading.className = "changeBG";
