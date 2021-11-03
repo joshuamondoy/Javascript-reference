@@ -136,6 +136,23 @@
     const items = todos.find((item) => {
     return item.id = 1
     })
+    
+    // return true if found item that has that value false if not
+    const items = todos.some((item) => {
+    return item.isCompleted == false
+    })
+    
+    // return true if found all item falls into condition false if not
+    const items = todos.every((item) => {
+    return item.isCompleted == true
+    })
+    
+    // return the total value of index
+    const items = todos.reduce((currentTotal, item) => {
+    return item.id + currentTotal // return the total value of id
+    }, 0) // 0 is the initial value of current total
+
+    
     //filter will only return a value from array object depends on the condition 
     //it create a new array based on the condition
     const filterElements = todos.filter((todo) => {
