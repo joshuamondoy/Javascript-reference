@@ -131,7 +131,11 @@
         return todo.text //this will return a single array with values of text element from the object
     });
     console.log(mapElements)
-
+    
+    // return index based on what is find
+    const items = todos.find((item) => {
+    return item.id = 1
+    })
     //filter will only return a value from array object depends on the condition 
     //it create a new array based on the condition
     const filterElements = todos.filter((todo) => {
