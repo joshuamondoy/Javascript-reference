@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="header" data-header-title="This is the header">Data-set demo</h1>
+    <button class="btn" data-target-element="#paragraph">Click me!</button>
+    <p id="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, recusandae.</p>
+    
+    <script>
+        // dataset are custom data attributes that we can set on an element
+        // like id, class and tagname you can also use data attribute to select an element like,
+        // const header = document.querySelector('[data-header-title]');
+        const header = document.querySelector('.header');
+        console.log(header.dataset.headerTitle); // prints "This is the header"
+
+        // trigger an element using data attribute
+        const targetButton = document.querySelectorAll('[data-target-element]'); // select the button to trigger
+        
+        // let's say we have more than 1 button let's loop first then add an event on each click
+        targetButton.forEach(button => {
+            button.addEventListener('click', () => {
+                // select the button data attribute value on click which is "#paragraph"
+                const targetElement = document.querySelector(button.dataset.targetElement)
+                targetElement.style.cssText = "background: coral; font-family: sans-serif" // change it's bg
+                console.log("success")
+            })
+            
+        });
+    </script>
+</body>
+</html>
